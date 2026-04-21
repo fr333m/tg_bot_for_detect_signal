@@ -214,8 +214,13 @@ class BybitPriceTracker extends EventEmitter {
 
     if (this.ws) {
       this.ws.removeAllListeners();
+      this.ws.on('error', () => {}); // Игнорируем ошибки при закрытии
       if (this.ws.readyState === WebSocket.OPEN || this.ws.readyState === WebSocket.CONNECTING) {
-        this.ws.close();
+        try {
+          this.ws.close();
+        } catch (err) {
+          console.warn('⚠️ Ошибка при закрытии WebSocket:', err.message);
+        }
       }
       this.ws = null;
     }
