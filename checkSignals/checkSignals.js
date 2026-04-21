@@ -1,10 +1,10 @@
 const SqliteDB = require('../database/db');
 const dbService = new SqliteDB('./prices.db');
 const { sendSignal } = require('../bot/send_signal');
-const { priceTracker } = require('../websocket/ws');
 
-
+        
 async function checkSignals(params) {
+    const { priceTracker } = require('../websocket/ws');
     const symbols = await dbService.getTrackingContracts();
     console.log('🔍 Проверка сигналов для символов:', symbols);
 

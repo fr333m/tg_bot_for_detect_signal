@@ -3,7 +3,6 @@ const WebSocket = require('ws');
 const SqliteDB = require('../database/db');
 const dbService = new SqliteDB('./prices.db');
 const { EventEmitter }  = require('events');
-const {checkSignals} = require('../checkSignals/checkSignals');
 
 // ===================== НАСТРОЙКИ =====================
 class BybitPriceTracker extends EventEmitter {

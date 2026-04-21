@@ -1,6 +1,7 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
+
 class SqliteDB {
   constructor(dbPath = './prices.db') {
     this.db = new sqlite3.Database(path.resolve(dbPath), (err) => {
