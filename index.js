@@ -64,9 +64,9 @@ process.once('SIGTERM', () => {
 });
 
 
-// setInterval(() => {
-//     checkSignals();
-// }, 500);
+setInterval(() => {
+    checkSignals();
+}, 500);
 
 // ===================== ИСПОЛЬЗОВАНИЕ =====================pr
 async function runParser(){
