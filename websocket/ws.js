@@ -135,7 +135,7 @@ class BybitPriceTracker extends EventEmitter {
         // Вывод в консоль (можно отключить в продакшене)
         if (hasChanged && !isNaN(priceInfo.lastPrice)) {
           await dbService.saveLivePrice(priceInfo);
-           console.log(`📈 ${priceInfo.symbol} - Last: ${priceInfo.lastPrice}, Mark: ${priceInfo.markPrice}, Index: ${priceInfo.indexPrice}`);
+          //  console.log(`📈 ${priceInfo.symbol} - Last: ${priceInfo.lastPrice}, Mark: ${priceInfo.markPrice}, Index: ${priceInfo.indexPrice}`);
         }
       }
     } catch (err) {

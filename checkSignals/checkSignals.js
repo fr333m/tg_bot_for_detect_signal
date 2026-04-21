@@ -2,14 +2,12 @@ const SqliteDB = require('../database/db');
 const dbService = new SqliteDB('./prices.db');
 const { sendSignal } = require('../bot/send_signal');
 
-        
+
 async function checkSignals(params) {
     const { priceTracker } = require('../websocket/ws');
     const symbols = await dbService.getTrackingContracts();
-    console.log('🔍 Проверка сигналов для символов:', symbols);
 
     if (symbols.length === 0) {
-        console.log('⚠️ Нет отслеживаемых контрактов. Добавьте контракты в базу данных для проверки сигналов.');
         return;
     }
     
