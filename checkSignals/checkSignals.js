@@ -1,6 +1,7 @@
 const SqliteDB = require('../database/db');
 const dbService = new SqliteDB('./prices.db');
 const { sendSignal } = require('../bot/send_signal');
+const { priceTracker } = require('../checkSignals/checkSignals');
 
 
 async function checkSignals(params) {
@@ -21,11 +22,13 @@ async function checkSignals(params) {
 
             await sendSignal(symbol.symbol, symbol.interval);
             await dbService.removeRowOnSymbol(symbol.symbol, 'trackingContracts', symbol.id);
+            await priceTracker.reload();
         }
         if(symbol.from_which_side === "SELL" && maxPrice >= symbol.price) {
             
             await sendSignal(symbol.symbol, symbol.interval);
             await dbService.removeRowOnSymbol(symbol.symbol, 'trackingContracts', symbol.id);
+            await priceTracker.reload();
         }
     }
 }
