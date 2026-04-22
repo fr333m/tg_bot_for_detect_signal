@@ -8,7 +8,7 @@ const { sendSignal } = require('./bot/send_signal');
 
 
 async function initializeDatabase() {
-    await dbService.printTable('live_prices');
+    await dbService.printTable('trackingContracts');
     const contracts = await dbService.getLivePricesBySymbol('SOLUSDT');
     console.log(contracts);
     // await dbService.saveTrackingContract([
@@ -20,7 +20,7 @@ async function initializeDatabase() {
     // console.log(uniqueSymbols);
 }
 
-initializeDatabase();
+// initializeDatabase();
 
 // Вызываем checkSignals каждые 500 миллисекунд
 
