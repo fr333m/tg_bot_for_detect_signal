@@ -85,6 +85,25 @@ class BybitClient {
       throw error;
     }
   }
+
+  async getPrice(symbol) {
+    try {
+      const response = await this.client.getTickers({
+        category: 'linear', // For USDT perpetuals
+        symbol,
+      });
+      if (response.retCode !== 0) {
+        throw new Error(response.retMsg);
+      }
+      if (!response.result.list || response.result.list.length === 0) {
+        throw new Error('No data found for symbol');
+      }
+      return response.result.list[0].lastPrice;
+    } catch (error) {
+      console.error('Error fetching price:', error);
+      throw error;
+    }
+  }
 }
 
 module.exports = BybitClient;
