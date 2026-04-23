@@ -11,7 +11,6 @@ class Config {
     this.BASE_URL = process.env.BASE_URL
     this.DB_PATH = process.env.DB_PATH
     this.PROXY_URL = process.env.PROXY_URL
-    this.CHECK_INTERVAL_MS = parseInt(process.env.CHECK_INTERVAL_MS) || 500; // Интервал проверки сигналов в миллисекундах
   }
 }
 
