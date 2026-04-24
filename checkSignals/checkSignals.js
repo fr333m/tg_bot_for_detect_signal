@@ -24,8 +24,7 @@ async function checkSignals(params) {
         if(symbol.from_which_side === "SELL" && maxPrice >= symbol.price) {
             
             await sendSignal(symbol.symbol, symbol.interval);
-            await dbService.removeRowOnSymbol(symbol.symbol, 'trackingContracts', symbol.id);
-            
+            await dbService.removeRowOnSymbol(symbol.symbol, 'trackingContracts', symbol.id); 
         }
     }
 }

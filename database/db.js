@@ -532,8 +532,8 @@ _cleanupLivePrices() {
 
     const total = row ? row.total : 0;
 
-    // Чистим только если достигли 500
-    if (total < 500) {
+    // Чистим только если достигли 1500
+    if (total < 1500) {
       return;
     }
 

@@ -9,8 +9,8 @@ const { sendSignal } = require('./bot/send_signal');
 
 async function initializeDatabase() {
     await dbService.printTable('trackingContracts');
-    const contracts = await dbService.getLivePricesBySymbol('SOLUSDT');
-    console.log(contracts);
+    // const contracts = await dbService.getLivePricesBySymbol('SOLUSDT');
+    // console.log(contracts);
     // await dbService.saveTrackingContract([
     //     { symbol: 'ETHUSDT', interval: '5m', price: 2481, from_which_side: 'BUY' }
     //   ]);
@@ -64,9 +64,9 @@ process.once('SIGTERM', () => {
 });
 
 
-// setInterval(() => {
-//     checkSignals();
-// }, 500);
+setInterval(() => {
+    checkSignals();
+}, 500);
 
 // ===================== ИСПОЛЬЗОВАНИЕ =====================pr
 async function runParser(){
@@ -77,7 +77,7 @@ async function runParser(){
     }
 }
 
-// runParser();
+runParser();
 
 
 
